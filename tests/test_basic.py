@@ -1,4 +1,4 @@
-import cmake_example as m
+import commpy as m
 
 
 def test_main():
