@@ -4,6 +4,9 @@ project(comppy)
 add_subdirectory(pybind11)
 pybind11_add_module(comppy src/main.cpp)
 
+
+add_subdirectory(include/compc)
+
 # EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
 # define (VERSION_INFO) here.
 target_compile_definitions(comppy

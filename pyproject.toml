@@ -7,6 +7,12 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.poetry]
+name = "comppy"
+version = "0.0.1"
+description = ""
+authors = ["Jeffrey Wigger"]
+
 [tool.mypy]
 files = "setup.py"
 python_version = "3.7"
