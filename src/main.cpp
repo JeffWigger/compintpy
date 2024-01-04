@@ -7,36 +7,31 @@
 
 namespace py = pybind11;
 
-py::array_t<uint8_t> compress(py::array_t<uint32_t> array){
-  compc::EliasGamma<uint32_t> elias;
+template<typename T>
+py::array_t<uint8_t> compress(py::array_t<T, py::array::c_style> array){
+  compc::EliasGamma<T> elias;
   const ssize_t* sizes = array.shape();
   std::size_t N = sizes[0];
   uint8_t* comp = elias.compress(array.data(), N);
   auto capsule = py::capsule(comp, [](void *v) {
-    //std::cerr << "freeing memory @ " << v << std::endl;
-    delete v;
+    std::cerr << "freeing memory uint32 @ " << v << std::endl;
+    delete [] static_cast<T*>(v);
   });
-  return py::array(10, comp, capsule);
+  return py::array(N, comp, capsule);
   
 }
 
+template<typename T>
+py::array_t<T> decompress(py::array_t<uint8_t> array, std::size_t binary_length, std::size_t array_length){
 
-py::array_t<uint32_t> decompress(py::array_t<uint8_t> array){
-
-  compc::EliasGamma<uint32_t> elias;
-  const ssize_t* sizes = array.shape();
-  std::size_t N = sizes[0];
-  uint32_t* decomp = elias.decompress(array.data());
-  auto capsule = py::capsule(decomp, [](void *v) {
-    //std::cerr << "freeing memory @ " << v << std::endl;
-    delete v;
-  });
-  return py::array(10, decomp, capsule);
+  compc::EliasGamma<T> elias;
+  T* decomp = elias.decompress(array.data(), binary_length, array_length);
+  return py::array(array_length, decomp);
 }
 
 PYBIND11_MODULE(comppy, m) {
     m.doc() = R"pbdoc(
-        Fast Variable Length Encodings For Python
+        Fast Variable Length Intiger Encodings For Python
         -----------------------
         .. currentmodule:: fastvarints
         .. autosummary::
@@ -46,11 +41,23 @@ PYBIND11_MODULE(comppy, m) {
     )pbdoc";
 
 
-    m.def("compress", &compress, R"pbdoc(
+    m.def("compress", &compress<uint32_t>, py::return_value_policy::reference, R"pbdoc(
         compresses a numpy array using the elias gamma encoding
     )pbdoc");
 
-    m.def("decompress", &decompress, R"pbdoc(
+    m.def("compress", &compress<uint64_t>, py::return_value_policy::reference, R"pbdoc(
+        compresses a numpy array using the elias gamma encoding
+    )pbdoc");
+
+    m.def("compress", &compress<int32_t>, py::return_value_policy::reference, R"pbdoc(
+        compresses a numpy array using the elias gamma encoding
+    )pbdoc");
+
+    m.def("compress", &compress<int64_t>, py::return_value_policy::reference, R"pbdoc(
+        compresses a numpy array using the elias gamma encoding
+    )pbdoc");
+
+    m.def("decompress_uint32", &decompress<uint32_t>, R"pbdoc(
         decompresses a numpy byte array with elias gamma encoded numbers
     )pbdoc");
 

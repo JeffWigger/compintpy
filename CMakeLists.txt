@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.4...3.18)
 project(comppy)
 
 add_subdirectory(include/compc compc)
-
+target_compile_options(compc PRIVATE -fPIC)
 
 add_subdirectory(pybind11)
 pybind11_add_module(comppy src/main.cpp)
