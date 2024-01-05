@@ -16,6 +16,7 @@ authors = ["Jeffrey Wigger"]
 [tool.poetry.group.dev.dependencies]
 black = "^23.12.1"
 isort = "^5.13.2"
+sphinx = "^7.2.6"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
