@@ -9,9 +9,16 @@ build-backend = "setuptools.build_meta"
 
 [tool.poetry]
 name = "comppy"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = ["Jeffrey Wigger"]
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.12.1"
+isort = "^5.13.2"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
 
 [tool.mypy]
 files = "setup.py"
@@ -53,3 +60,14 @@ extend-ignore = [
   "E501",   # Line too long
 ]
 target-version = "py37"
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+exclude = "/pybind11"
+
+[tool.isort]
+profile = "black"
+lines_after_imports = 2
+lines_between_types = 1
+known_first_party = ["commpy", "_comppy"]

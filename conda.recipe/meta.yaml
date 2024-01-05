@@ -1,6 +1,6 @@
 package:
   name: comppy
-  version: 0.0.1
+  version: 0.0.2
 
 source:
   path: ..
@@ -34,5 +34,5 @@ test:
     - python -m pytest
 
 about:
-  summary: A CMake example project built with pybind11.
+  summary: "Python bindings for compc: A variable length compression algorithm."
   license_file: LICENSE
