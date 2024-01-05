@@ -1,8 +1,10 @@
-import _comppy.gamma as gamma
-import _comppy.delta as delta
-import _comppy.omega as omega
-import numpy as np
 from abc import ABC, abstractmethod
+
+import numpy as np
+
+import _comppy.delta as delta
+import _comppy.gamma as gamma
+import _comppy.omega as omega
 
 
 class Elias(ABC):
