@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from comppy.elias import *
+from comppy.elias import EliasDelta, EliasGamma, EliasOmega
 
 
 SUPPORTED_TYPES = [np.int64, np.uint64, np.int32, np.uint32]

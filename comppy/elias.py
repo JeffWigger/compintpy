@@ -10,9 +10,10 @@ import _comppy.omega as omega
 
 class Elias(ABC):
     """
-    Abstract base class of all Elias compression implementations. 
+    Abstract base class of all Elias compression implementations.
     """
-    def __init__(self, offset: int=0, map_negative_numbers: bool=False):
+
+    def __init__(self, offset: int = 0, map_negative_numbers: bool = False):
         """
         All Elias compression algorithm support natural numbers (>0).
         However, it can be extended to all numbers by using the offset and mapping the negative numbers.
@@ -36,7 +37,9 @@ class Elias(ABC):
         ...
 
     @abstractmethod
-    def decompress(self, array: np.ndarray, output_length: int, output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32]) -> np.ndarray:
+    def decompress(
+        self, array: np.ndarray, output_length: int, output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32]
+    ) -> np.ndarray:
         """
         Abstract method defining the decompression method used by all Elias implementations.
 
@@ -52,7 +55,8 @@ class EliasGamma(Elias):
     """
     Implementation of the Elias Gamma compression algorithm.
     """
-    def __init__(self, offset: int =0, map_negative_numbers: bool =False):
+
+    def __init__(self, offset: int = 0, map_negative_numbers: bool = False):
         """
         By default it only supports natural numbers (>0).
         However, it can be extended to all numbers by using the offset and mapping the negative numbers.
@@ -71,11 +75,16 @@ class EliasGamma(Elias):
             array (np.ndarray): Array to be compressed. The array must be of types Union[np.int64, np.uint64, np.int32, np.uint32].
 
         Returns:
-            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8. 
+            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8.
         """
         return gamma.compress(array, self.offset, self.map_negative_numbers)
 
-    def decompress(self, array: np.ndarray, output_length: int, output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64) -> np.ndarray:
+    def decompress(
+        self,
+        array: np.ndarray,
+        output_length: int,
+        output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64,
+    ) -> np.ndarray:
         """
         Decompress an array compressed by the Elias Gamma algorithm.
 
@@ -107,7 +116,8 @@ class EliasDelta(Elias):
     """
     Implementation of the Elias Delta compression algorithm.
     """
-    def __init__(self, offset: int =0, map_negative_numbers: bool =False):
+
+    def __init__(self, offset: int = 0, map_negative_numbers: bool = False):
         """
         By default it only supports natural numbers (>0).
         However, it can be extended to all numbers by using the offset and mapping the negative numbers.
@@ -126,11 +136,16 @@ class EliasDelta(Elias):
             array (np.ndarray): Array of integers to be compressed. The array must be of types Union[np.int64, np.uint64, np.int32, np.uint32].
 
         Returns:
-            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8. 
+            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8.
         """
         return delta.compress(array, self.offset, self.map_negative_numbers)
 
-    def decompress(self, array: np.ndarray, output_length: int, output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64) -> np.ndarray:
+    def decompress(
+        self,
+        array: np.ndarray,
+        output_length: int,
+        output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64,
+    ) -> np.ndarray:
         """
         Decompress an array compressed by the Elias Delta algorithm.
 
@@ -162,7 +177,8 @@ class EliasOmega(Elias):
     """
     Implementation of the Elias Omega compression algorithm.
     """
-    def __init__(self, offset: int =0, map_negative_numbers: bool =False):
+
+    def __init__(self, offset: int = 0, map_negative_numbers: bool = False):
         """
         By default it only supports natural numbers (>0).
         However, it can be extended to all numbers by using the offset and mapping the negative numbers.
@@ -181,11 +197,16 @@ class EliasOmega(Elias):
             array (np.ndarray): Array of integers to be compressed. The array must be of types Union[np.int64, np.uint64, np.int32, np.uint32].
 
         Returns:
-            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8. 
+            np.ndarray: Array of compressed integers. The dtype of the array is np.uint8.
         """
         return omega.compress(array, self.offset, self.map_negative_numbers)
 
-    def decompress(self, array: np.ndarray, output_length: int, output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64) -> np.ndarray:
+    def decompress(
+        self,
+        array: np.ndarray,
+        output_length: int,
+        output_dtype: Union[np.int64, np.uint64, np.int32, np.uint32] = np.int64,
+    ) -> np.ndarray:
         """
         Decompress an array compressed by the Elias Omega algorithm.
 

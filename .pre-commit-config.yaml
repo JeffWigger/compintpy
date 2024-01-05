@@ -33,22 +33,6 @@ repos:
   - id: requirements-txt-fixer
   - id: trailing-whitespace
 
-# Black, the code formatter, natively supports pre-commit
-- repo: https://github.com/psf/black
-  rev: "23.12.1"
-  hooks:
-  - id: black
-    exclude: ^(docs)
-
-# isort, fromat python imports
-- repo: https://github.com/pycqa/isort
-  rev: 5.13.2
-  hooks:
-    - id: isort
-      name: isort (python)
-
-
-
 - repo: https://github.com/charliermarsh/ruff-pre-commit
   rev: "v0.1.11"
   hooks:

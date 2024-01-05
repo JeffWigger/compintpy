@@ -3,5 +3,5 @@
     url = https://github.com/pybind/pybind11.git
     branch = master
 [submodule "include/compc"]
-	path = include/compc
-	url = git@github.com:JeffWigger/compc.git
+    path = include/compc
+    url = git@github.com:JeffWigger/compc.git

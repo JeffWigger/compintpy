@@ -20,7 +20,7 @@ py::array_t<uint8_t> elias_gamma_compress(py::array_t<T, py::array::c_style> arr
     delete [] static_cast<T*>(v);
   });
   return py::array(N, comp, capsule);
-  
+
 }
 
 template<typename T>
@@ -42,7 +42,7 @@ py::array_t<uint8_t> elias_delta_compress(py::array_t<T, py::array::c_style> arr
     delete [] static_cast<T*>(v);
   });
   return py::array(N, comp, capsule);
-  
+
 }
 
 template<typename T>
@@ -63,7 +63,7 @@ py::array_t<uint8_t> elias_omega_compress(py::array_t<T, py::array::c_style> arr
     delete [] static_cast<T*>(v);
   });
   return py::array(N, comp, capsule);
-  
+
 }
 
 template<typename T>
