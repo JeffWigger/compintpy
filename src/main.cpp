@@ -78,7 +78,7 @@ PYBIND11_MODULE(_comppy, m) {
     m.doc() = R"pbdoc(
         Fast Variable Length Intiger Encodings For Python
         -----------------------
-        .. currentmodule:: fastvarints
+        .. currentmodule:: _compy
         .. autosummary::
            :toctree: _generate
            compress
@@ -124,70 +124,70 @@ PYBIND11_MODULE(_comppy, m) {
     // Delta submodule
     auto m_d = m.def_submodule("delta", "Elias Delta functions");
     m_d.def("compress", &elias_delta_compress<uint32_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias delta encoding
     )pbdoc");
 
     m_d.def("compress", &elias_delta_compress<uint64_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias delta encoding
     )pbdoc");
 
     m_d.def("compress", &elias_delta_compress<int32_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias delta encoding
     )pbdoc");
 
     m_d.def("compress", &elias_delta_compress<int64_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias delta encoding
     )pbdoc");
 
     m_d.def("decompress_uint32", &elias_delta_decompress<uint32_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias delta encoded numbers
     )pbdoc");
 
     m_d.def("decompress_uint64", &elias_delta_decompress<uint64_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias delta encoded numbers
     )pbdoc");
 
     m_d.def("decompress_int32", &elias_delta_decompress<int32_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias delta encoded numbers
     )pbdoc");
 
     m_d.def("decompress_int64", &elias_delta_decompress<int64_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias delta encoded numbers
     )pbdoc");
 
 
     // Omega submodule
     auto m_o = m.def_submodule("omega", "Elias Delta functions");
     m_o.def("compress", &elias_omega_compress<uint32_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias omega encoding
     )pbdoc");
 
     m_o.def("compress", &elias_omega_compress<uint64_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias omega encoding
     )pbdoc");
 
     m_o.def("compress", &elias_omega_compress<int32_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias omega encoding
     )pbdoc");
 
     m_o.def("compress", &elias_omega_compress<int64_t>, py::return_value_policy::reference, R"pbdoc(
-        compresses a numpy array using the elias gamma encoding
+        compresses a numpy array using the elias omega encoding
     )pbdoc");
 
     m_o.def("decompress_uint32", &elias_omega_decompress<uint32_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias omega encoded numbers
     )pbdoc");
 
     m_o.def("decompress_uint64", &elias_omega_decompress<uint64_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias omega encoded numbers
     )pbdoc");
 
     m_o.def("decompress_int32", &elias_omega_decompress<int32_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias omega encoded numbers
     )pbdoc");
 
     m_o.def("decompress_int64", &elias_omega_decompress<int64_t>, R"pbdoc(
-        decompresses a numpy byte array with elias gamma encoded numbers
+        decompresses a numpy byte array with elias omega encoded numbers
     )pbdoc");
 
 #ifdef VERSION_INFO
