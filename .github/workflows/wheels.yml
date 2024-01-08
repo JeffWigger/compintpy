@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-     - master
+     - main
   release:
     types:
       - published
@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -46,6 +46,8 @@ jobs:
     - uses: pypa/cibuildwheel@v2.12.1
       env:
         CIBW_ARCHS_MACOS: auto universal2
+        CIBW_SKIP: cp36-* cp37-* cp38-*
+
 
     - name: Verify clean directory
       run: git diff --exit-code

@@ -7,6 +7,22 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.poetry]
+name = "compintpy"
+version = "0.0.2"
+description = ""
+authors = ["Jeffrey Wigger"]
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.2.6"
+ruff = "^0.1.11"
+matplotlib = "^3.8.2"
+pandas = "^2.1.4"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+numpy = "^1.26.3"
+
 [tool.mypy]
 files = "setup.py"
 python_version = "3.7"
@@ -46,4 +62,25 @@ extend-select = [
 extend-ignore = [
   "E501",   # Line too long
 ]
-target-version = "py37"
+target-version = "py39"
+line-length = 120
+exclude = ["pybind11", "build"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+lines-between-types = 1
+known-first-party = ["commpy", "_compintpy"]

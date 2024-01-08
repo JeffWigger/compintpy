@@ -1,10 +1,13 @@
 cmake_minimum_required(VERSION 3.4...3.18)
-project(cmake_example)
+project(compintpy)
+
+add_subdirectory(include/compc compintc)
+target_compile_options(compintc PRIVATE -fPIC)
 
 add_subdirectory(pybind11)
-pybind11_add_module(cmake_example src/main.cpp)
+pybind11_add_module(_compintpy src/main.cpp)
 
-# EXAMPLE_VERSION_INFO is defined by setup.py and passed into the C++ code as a
-# define (VERSION_INFO) here.
-target_compile_definitions(cmake_example
-                           PRIVATE VERSION_INFO=${EXAMPLE_VERSION_INFO})
+target_link_libraries(_compintpy PRIVATE compintc)
+
+target_compile_definitions(_compintpy
+                           PRIVATE VERSION_INFO=${compintpy_VERSION_INFO})

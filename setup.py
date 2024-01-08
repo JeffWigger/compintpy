@@ -2,10 +2,12 @@ import os
 import re
 import subprocess
 import sys
+
 from pathlib import Path
 
 from setuptools import Extension, setup
 from setuptools.command.build_ext import build_ext
+
 
 # Convert distutils Windows platform specifiers to CMake -A arguments
 PLAT_TO_CMAKE = {
@@ -42,7 +44,7 @@ class CMakeBuild(build_ext):
         cmake_generator = os.environ.get("CMAKE_GENERATOR", "")
 
         # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON
-        # EXAMPLE_VERSION_INFO shows you how to pass a value into the C++ code
+        # compintpy_VERSION_INFO shows you how to pass a value into the C++ code
         # from Python.
         cmake_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}{os.sep}",
@@ -56,7 +58,7 @@ class CMakeBuild(build_ext):
             cmake_args += [item for item in os.environ["CMAKE_ARGS"].split(" ") if item]
 
         # In this example, we pass in the version to C++. You might not need to.
-        cmake_args += [f"-DEXAMPLE_VERSION_INFO={self.distribution.get_version()}"]
+        cmake_args += [f"-Dcompintpy_VERSION_INFO={self.distribution.get_version()}"]
 
         if self.compiler.compiler_type != "msvc":
             # Using Ninja-build since it a) is available as a wheel and b)
@@ -91,9 +93,7 @@ class CMakeBuild(build_ext):
 
             # Multi-config generators have a different way to specify configs
             if not single_config:
-                cmake_args += [
-                    f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}"
-                ]
+                cmake_args += [f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}"]
                 build_args += ["--config", cfg]
 
         if sys.platform.startswith("darwin"):
@@ -115,26 +115,22 @@ class CMakeBuild(build_ext):
         if not build_temp.exists():
             build_temp.mkdir(parents=True)
 
-        subprocess.run(
-            ["cmake", ext.sourcedir, *cmake_args], cwd=build_temp, check=True
-        )
-        subprocess.run(
-            ["cmake", "--build", ".", *build_args], cwd=build_temp, check=True
-        )
+        subprocess.run(["cmake", ext.sourcedir, *cmake_args], cwd=build_temp, check=True)
+        subprocess.run(["cmake", "--build", ".", *build_args], cwd=build_temp, check=True)
 
 
-# The information here can also be placed in setup.cfg - better separation of
-# logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="cmake_example",
-    version="0.0.1",
-    author="Dean Moldovan",
-    author_email="dean0x7d@gmail.com",
-    description="A test project using pybind11 and CMake",
+    name="compintpy",
+    version="0.0.2",
+    author="Jeffrey Wigger",
+    author_email="wiggerjeffrey@gmail.com",
+    description="Python bindings for compintc: A variable length compression algorithm.",
     long_description="",
-    ext_modules=[CMakeExtension("cmake_example")],
+    ext_modules=[CMakeExtension("_compintpy")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
     extras_require={"test": ["pytest>=6.0"]},
-    python_requires=">=3.7",
+    install_requires=["numpy"],
+    python_requires=">=3.9",
+    packages=["compintpy"],
 )
