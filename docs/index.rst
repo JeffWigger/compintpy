@@ -1,4 +1,4 @@
-comppy Documentation
+Comppy Documentation
 ============================
 
 Contents:

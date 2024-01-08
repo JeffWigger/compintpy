@@ -16,6 +16,8 @@ authors = ["Jeffrey Wigger"]
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2.6"
 ruff = "^0.1.11"
+matplotlib = "^3.8.2"
+pandas = "^2.1.4"
 
 [tool.poetry.dependencies]
 python = ">=3.9"
