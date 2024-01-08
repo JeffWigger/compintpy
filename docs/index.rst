@@ -1,4 +1,4 @@
-Comppy Documentation
+compintpy Documentation
 ============================
 
 Contents:
@@ -6,4 +6,4 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   comppy
+   compintpy

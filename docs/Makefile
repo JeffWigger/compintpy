@@ -96,7 +96,7 @@ qthelp:
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
 	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/commpy.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/comppy.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/compintpy.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -114,7 +114,7 @@ devhelp:
 	@echo "Build finished."
 	@echo "To view the help file:"
 	@echo "# mkdir -p $$HOME/.local/share/devhelp/commpy"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/comppy"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/compintpy"
 	@echo "# devhelp"
 
 .PHONY: epub

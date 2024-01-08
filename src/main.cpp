@@ -1,6 +1,6 @@
-#include <compc/elias_delta.hpp>
-#include <compc/elias_gamma.hpp>
-#include <compc/elias_omega.hpp>
+#include <compintc/elias_delta.hpp>
+#include <compintc/elias_gamma.hpp>
+#include <compintc/elias_omega.hpp>
 #include <memory>
 #include <pybind11/numpy.h>
 #include <pybind11/pybind11.h>
@@ -81,7 +81,7 @@ py::array_t<T> elias_omega_decompress(py::array_t<uint8_t> array, std::size_t bi
   return py::array(array_length, decomp, capsule);
 }
 
-PYBIND11_MODULE(_comppy, m) {
+PYBIND11_MODULE(_compintpy, m) {
   m.doc() = R"pbdoc(
         Fast Variable Length Intiger Encodings For Python
         -----------------------

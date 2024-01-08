@@ -3,9 +3,9 @@ from typing import Union
 
 import numpy as np
 
-import _comppy.delta as delta
-import _comppy.gamma as gamma
-import _comppy.omega as omega
+import _compintpy.delta as delta
+import _compintpy.gamma as gamma
+import _compintpy.omega as omega
 
 
 class Elias(ABC):

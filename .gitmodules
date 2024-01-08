@@ -4,4 +4,4 @@
     branch = master
 [submodule "include/compc"]
     path = include/compc
-    url = git@github.com:JeffWigger/compc.git
+    url = git@github.com:JeffWigger/compintc.git

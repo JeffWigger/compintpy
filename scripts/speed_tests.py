@@ -5,7 +5,7 @@ from timeit import default_timer as timer
 import numpy as np
 import pandas as pd
 
-from comppy.elias import Elias, EliasDelta, EliasGamma, EliasOmega
+from compintpy.elias import Elias, EliasDelta, EliasGamma, EliasOmega
 
 
 def poisson_compress_tests(test_object: Elias, input: np.ndarray) -> np.ndarray:

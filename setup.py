@@ -44,7 +44,7 @@ class CMakeBuild(build_ext):
         cmake_generator = os.environ.get("CMAKE_GENERATOR", "")
 
         # Set Python_EXECUTABLE instead if you use PYBIND11_FINDPYTHON
-        # COMPPY_VERSION_INFO shows you how to pass a value into the C++ code
+        # compintpy_VERSION_INFO shows you how to pass a value into the C++ code
         # from Python.
         cmake_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}{os.sep}",
@@ -58,7 +58,7 @@ class CMakeBuild(build_ext):
             cmake_args += [item for item in os.environ["CMAKE_ARGS"].split(" ") if item]
 
         # In this example, we pass in the version to C++. You might not need to.
-        cmake_args += [f"-DCOMPPY_VERSION_INFO={self.distribution.get_version()}"]
+        cmake_args += [f"-Dcompintpy_VERSION_INFO={self.distribution.get_version()}"]
 
         if self.compiler.compiler_type != "msvc":
             # Using Ninja-build since it a) is available as a wheel and b)
@@ -120,16 +120,16 @@ class CMakeBuild(build_ext):
 
 
 setup(
-    name="comppy",
+    name="compintpy",
     version="0.0.2",
     author="Jeffrey Wigger",
     author_email="wiggerjeffrey@gmail.com",
-    description="Python bindings for compc: A variable length compression algorithm.",
+    description="Python bindings for compintc: A variable length compression algorithm.",
     long_description="",
-    ext_modules=[CMakeExtension("_comppy")],
+    ext_modules=[CMakeExtension("_compintpy")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
     extras_require={"test": ["pytest>=6.0"]},
     python_requires=">=3.7",
-    packages=["comppy"],
+    packages=["compintpy"],
 )

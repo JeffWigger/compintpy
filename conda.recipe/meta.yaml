@@ -1,5 +1,5 @@
 package:
-  name: comppy
+  name: compintpy
   version: 0.0.2
 
 source:
@@ -27,12 +27,12 @@ test:
   requires:
     - pytest
   imports:
-    - comppy
+    - compintpy
   source_files:
     - tests
   commands:
     - python -m pytest
 
 about:
-  summary: "Python bindings for compc: A variable length compression algorithm."
+  summary: "Python bindings for compintc: A variable length compression algorithm."
   license_file: LICENSE

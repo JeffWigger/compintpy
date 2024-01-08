@@ -1,4 +1,4 @@
-Comppy
+compintpy
 *******
-.. automodule:: comppy.elias
+.. automodule:: compintpy.elias
    :members:

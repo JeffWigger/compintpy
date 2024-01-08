@@ -8,7 +8,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.poetry]
-name = "comppy"
+name = "compintpy"
 version = "0.0.2"
 description = ""
 authors = ["Jeffrey Wigger"]
@@ -82,4 +82,4 @@ line-ending = "auto"
 [tool.ruff.lint.isort]
 lines-after-imports = 2
 lines-between-types = 1
-known-first-party = ["commpy", "_comppy"]
+known-first-party = ["commpy", "_compintpy"]
