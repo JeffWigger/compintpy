@@ -17,6 +17,9 @@ PLAT_TO_CMAKE = {
     "win-arm64": "ARM64",
 }
 
+root_dir = Path(__file__).parent
+long_description = (root_dir / "README.md").read_text()
+
 
 # A CMakeExtension needs a sourcedir instead of a file list.
 # The name must be the _single_ output extension from the CMake build.
@@ -124,7 +127,8 @@ setup(
     version="0.0.3",
     author="Jeffrey Wigger",
     description="Python bindings for compintc: A variable length compression algorithm.",
-    long_description="",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     ext_modules=[CMakeExtension("_compintpy")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
