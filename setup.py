@@ -124,7 +124,7 @@ class CMakeBuild(build_ext):
 
 setup(
     name="compintpy",
-    version="0.0.3",
+    version="0.0.4",
     author="Jeffrey Wigger",
     description="Python bindings for compintc: A variable length compression algorithm.",
     long_description=long_description,
@@ -136,4 +136,6 @@ setup(
     install_requires=["numpy"],
     python_requires=">=3.9",
     packages=["compintpy"],
+    url="https://github.com/JeffWigger/compintpy",
+    license="BSD-3-Clause",
 )

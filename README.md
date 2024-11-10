@@ -20,6 +20,12 @@ uncomp = eg.decompress(output, arr.size, output_dtype=np.int64)
 
 ## Installation
 
+For Linux the project is available via pip:
+```
+pip install compintpy
+```
+
+Or, install it from the GitHub repository:
 ```
 git clone --recursive https://github.com/JeffWigger/compintpy.git
 cd compintpy
