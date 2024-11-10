@@ -121,9 +121,8 @@ class CMakeBuild(build_ext):
 
 setup(
     name="compintpy",
-    version="0.0.2",
+    version="0.0.3",
     author="Jeffrey Wigger",
-    author_email="wiggerjeffrey@gmail.com",
     description="Python bindings for compintc: A variable length compression algorithm.",
     long_description="",
     ext_modules=[CMakeExtension("_compintpy")],

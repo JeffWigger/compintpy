@@ -9,9 +9,14 @@ build-backend = "setuptools.build_meta"
 
 [tool.poetry]
 name = "compintpy"
-version = "0.0.2"
-description = ""
+version = "0.0.3"
+description = "Python bindings for compintc: A variable length compression algorithm."
 authors = ["Jeffrey Wigger"]
+license = "BSD-3-Clause"
+readme = "README.md"
+repository = "https://github.com/JeffWigger/FastDynamicBatcher"
+homepage = "https://github.com/JeffWigger/FastDynamicBatcher"
+keywords = ["machine-learning", "batching"]
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2.6"
