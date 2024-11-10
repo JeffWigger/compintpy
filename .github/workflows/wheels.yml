@@ -15,7 +15,7 @@ jobs:
     name: Build SDist
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
 
@@ -39,11 +39,11 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         submodules: true
 
-    - uses: pypa/cibuildwheel@v2.12.1
+    - uses: pypa/cibuildwheel@v2.31.3
       env:
         CIBW_ARCHS_MACOS: auto universal2
         CIBW_BUILD: cp*manylinux_x86_64
@@ -76,6 +76,6 @@ jobs:
         name: artifact
         path: dist
 
-    - uses: pypa/gh-action-pypi-publish@v1.8.5
+    - uses: pypa/gh-action-pypi-publish@v1
       with:
         password: ${{ secrets.pypi_password }}
