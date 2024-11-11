@@ -50,7 +50,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "compintpy"
-copyright = "2023, Jeffrey Wigger, 2016, Sylvain Corlay"
+copyright = "2023, Jeffrey Wigger"
 author = "Jeffrey Wigger"
 
 # The version info for the project you're documenting, acts as replacement for
