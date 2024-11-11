@@ -16,7 +16,7 @@ license = "BSD-3-Clause"
 readme = "README.md"
 repository = "https://github.com/JeffWigger/FastDynamicBatcher"
 homepage = "https://github.com/JeffWigger/FastDynamicBatcher"
-keywords = ["machine-learning", "batching"]
+keywords = ["compression", "integer"]
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^7.2.6"
