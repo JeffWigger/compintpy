@@ -30,7 +30,7 @@ numpy = "^1.26.3"
 
 [tool.mypy]
 files = "setup.py"
-python_version = "3.7"
+python_version = "3.12"
 strict = true
 show_error_codes = true
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
@@ -67,7 +67,7 @@ extend-select = [
 extend-ignore = [
   "E501",   # Line too long
 ]
-target-version = "py39"
+target-version = "py312"
 line-length = 120
 exclude = ["pybind11", "build"]
 
