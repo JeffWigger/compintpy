@@ -37,7 +37,7 @@ if __name__ == "__main__":
     reruns = 5
 
     for compression_name, compression_algorithm in test_objects:
-        for test_size, array in zip(test_sizes, test_arrays):
+        for test_size, array in zip(test_sizes, test_arrays, strict=False):
             for thread in threads:
                 print(
                     f"Experiment: Compression Algorithm {compression_name}, Test Size {test_size}, Number of threads {thread}"

@@ -25,12 +25,12 @@ matplotlib = "^3.8.2"
 pandas = "^2.1.4"
 
 [tool.poetry.dependencies]
-python = ">=3.9"
-numpy = "^1.26.3"
+python = ">=3.11"
+numpy = "^2.3.0"
 
 [tool.mypy]
 files = "setup.py"
-python_version = "3.7"
+python_version = "3.12"
 strict = true
 show_error_codes = true
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
@@ -67,13 +67,13 @@ extend-select = [
 extend-ignore = [
   "E501",   # Line too long
 ]
-target-version = "py39"
+target-version = "py312"
 line-length = 120
 exclude = ["pybind11", "build"]
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]
-ignore = []
+ignore = ["UP007"]
 fixable = ["ALL"]
 unfixable = []
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"

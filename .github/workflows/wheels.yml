@@ -44,11 +44,11 @@ jobs:
       with:
         submodules: true
 
-    - uses: pypa/cibuildwheel@v2.21.3
+    - uses: pypa/cibuildwheel@v3.2.0
       env:
         CIBW_ARCHS_MACOS: auto universal2
         CIBW_BUILD: cp*manylinux_x86_64
-        CIBW_SKIP: cp36-* cp37-* cp38-* pp*
+        CIBW_SKIP: cp36-* cp37-* cp38-* cp39-* cp310-* cp3??t-* pp*
 
 
     - name: Verify clean directory
@@ -69,7 +69,7 @@ jobs:
     if: github.event_name == 'release' && github.event.action == 'published'
 
     steps:
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v6
       with:
         python-version: "3.x"
 
