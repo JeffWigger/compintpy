@@ -48,7 +48,7 @@ jobs:
       env:
         CIBW_ARCHS_MACOS: auto universal2
         CIBW_BUILD: cp*manylinux_x86_64
-        CIBW_SKIP: cp36-* cp37-* cp38-* cp39-* cp310-* pp*
+        CIBW_SKIP: cp36-* cp37-* cp38-* cp39-* cp310-* cp3??t-* pp*
 
 
     - name: Verify clean directory
